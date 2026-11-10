@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  ::selection { @apply bg-grape-100 text-grape-700; }
+  :focus-visible { outline-color: #2F6BFF; }
+  /* Evita que filhos de grid estourem a largura no celular */
+  .grid > * { min-width: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-12 sm:py-16; }
+  .card { @apply rounded-3xl bg-white shadow-card ring-1 ring-line; }
+  .input { @apply h-11 w-full rounded-xl border-0 bg-white px-3.5 text-sm text-ink ring-1 ring-line placeholder:text-ink-muted/70 focus:ring-2 focus:ring-eletric-500; }
+  .textarea { @apply w-full rounded-xl border-0 bg-white px-3.5 py-2.5 text-sm text-ink ring-1 ring-line placeholder:text-ink-muted/70 focus:ring-2 focus:ring-eletric-500; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-ink; }
+  .prose-mm p { @apply mb-4 leading-relaxed text-ink-soft; }
+}
